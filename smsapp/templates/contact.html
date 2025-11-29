@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+{% block body %}
+
+<div class="row">
+  <div class="col-md-12">
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3560.203985831418!2d81.539365174305!3d26.83346356349377!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x399a2b20aede4817%3A0x3b01691a0b580533!2sSeth%20Anandram%20Jaipuria%20School%2C%20Ved%20Campus%2C%20Barabanki%20Mob.%209415520130!5e0!3m2!1sen!2sin!4v1725885075116!5m2!1sen!2sin"
+      width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade"></iframe>
+  </div>
+</div>
+
+<div class="row mt-3">
+  <h1 class="text-center">Contact US</h1>
+  <div class="col-sm-10 mx-auto shadow">
+    <div class="row mt-3">
+      {% if msg %}
+      <div class="col-sm-12">
+        <div class="alert alert-success" role="alert">{{msg}}</div>
+      </div>
+      {% endif %}
+      
+      <div class="col-sm-6 py-2 mx-auto mt-5">
+        <form class="row g-3" method="post">
+          {% csrf_token %}
+          <div class="col-md-9 mx-auto">
+            
+            <input name="name" type="text" class="form-control" id="name" placeholder="Enter name">
+          </div>
+          <div class="col-md-9 mx-auto">
+            <label for="gender" class="form-label">Gender </label>
+            <input name="gender" type="radio" value="Male" class="form-Cheak-input">Male
+            <input name="gender" type="radio" value="Female" class="form-Cheak-input">Female
+          </div>
+          <div class="col-md-9 mx-auto">
+            
+            <textarea name="address" class="form-control" id="address" placeholder="Enter Address"></textarea>
+          </div>
+          <div class="col-md-9 mx-auto">
+            
+            <input name="contactno" type="text" class="form-control" id="contactno" placeholder="Contact No">
+          </div>
+          <div class="col-md-9 mx-auto">
+          <input name="emailaddress" type="email" class="form-control" id="email" placeholder="Enter Email-ID">
+          </div>
+          <div class="col-md-9 mx-auto">
+            
+            <textarea name="enquirytext" class="form-control" id="enquiry" placeholder="Enquiry"></textarea>
+          </div>
+          <div class="col-12 text-center pb-4">
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </div>
+        </form>
+      </div>
+      <div class="col-sm-6 py-3 mt-5">
+        <h4>Contact No</h4>
+        <p><i class="fa-solid fa-location-dot"></i> <b> Address:</b> Seth Anandram Jaipuria School, Sadhu Campus, Barabanki
+          Village -Jhansapurwa, Post-Madanpur, Tehsil-Fatehpur, Barabanki. Pincode-225305</p>
+          
+         <p><i class="fa-solid fa-phone"></i> <b> Phone:</b> 9044554046, 9044554045</p>
+          
+         <p><i class="fa-regular fa-envelope"></i> admission.sadhucampus@jaipuria.school</p>
+         <h4>School Operational Timing</h4>
+         <p><i class="fa-solid fa-clock"></i><b> Summer :</b> 08:00 am – 02:00 pm</p>
+
+        <p><i class="fa-solid fa-clock"></i> <b> Winters : </b>09:00 am – 03:00 pm</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

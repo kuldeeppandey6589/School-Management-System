@@ -1,0 +1,56 @@
+{% extends 'adminbase.html' %}
+{% load static %}
+{% block admin %}
+
+
+<div class="row">
+  <div class="col-sm-12">
+    <h1 class="text-center">View Student</h1>
+    <form method="post">
+      <div class="table-responsive">
+      <table class="table">
+        <tr>
+          <th>Roll No</th>
+          <th>Student Name</th>
+          <th>Father Name</th>
+          <th>Mother Name</th>
+          <th>Gender</th>
+          <th>DOB</th>
+          <th>Contact No</th>
+          <th>Email ID</th>
+          <th>Student Class</th>
+          <th>Address</th>
+          <th>Fees Paid</th>
+          <th>Due Fees</th>
+          <th>Added Date</th>
+          <th>Action</th>
+        </tr>
+        
+          {% for s in student %}
+          <tr>
+            <td>{{s.rollno}}</td>
+            <td>{{s.name}}</td>
+            <td>{{s.fname}}</td>
+            <td>{{s.mname}}</td>
+            <td>{{s.gender}}</td>
+            <td>{{s.dob}}</td>
+            <td>{{s.contactno}}</td>
+            <td>{{s.emailaddress}}</td>
+            <td>{{s.sclass}}</td>
+            <td>{{s.address}}</td>
+            <td>{{s.feespaid}}</td>
+            <td>{{s.duefees}}</td>
+            <td>{{s.created_date}}</td>
+            <td>
+              <a href="#" class="btn btn-danger">Delete</a>
+            </td>
+          </tr>
+          {% endfor %}
+        
+      </table>
+    </div>
+    </form>
+  </div>
+</div>
+
+{% endblock %}

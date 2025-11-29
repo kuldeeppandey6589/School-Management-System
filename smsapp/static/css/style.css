@@ -1,0 +1,14 @@
+.loginbtn{
+    background-color: rgba(187, 59, 0, 0.623);
+}
+.loginbtn:hover{
+    background-color: whitesmoke;
+}
+.navbar ul li:hover{
+    background-color: blue; 
+    color: white;
+    border-radius: 15px;
+}
+.mytext{ 
+    text-align: justify;
+}

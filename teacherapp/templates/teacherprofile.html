@@ -1,0 +1,85 @@
+{% extends "teacherbase.html" %}
+{% load static %}
+
+{% block teacher %}
+<div class="row">
+    <div class="col-sm-12">
+        <h1 class="text-center">Teacher Profile</h1>
+        <form action="{% url 'teacherapp:uploadpic' %}" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+
+            <div class="row">
+                <div class="col-sm-2 mx-auto">
+                    {% if teacher.pic %}
+                    <img src="{{teacher.pic.url}}" alt="" class="img-fluid border" height="200" width="150">
+                    {% endif %}
+                    <input type="file" name="pic">
+                    <input type="submit" value="upload" class="btn btn-success">
+                </div>
+            </div>
+         </form>
+         <form method="post">
+            {% csrf_token %}
+            <div class="row">
+                <div class="col-md-6">
+                    <label for="n" class="form-lable">Name</label>
+                    <input type="text" name="name" value="{{teacher.name}}" id="n" class="form-control rounded-0">
+                </div>
+                <div class="col-md-6">
+                    <label for="fn" class="form-lable">Father's Name</label>
+                    <input type="text" name="fname" value="{{teacher.fname}}" id="fn" class="form-control rounded-0">
+                </div>
+                <div class="row mt-3">
+                    <div class="col-md-6">
+                        <label for="mn" class="form-lable">Mother's Name</label>
+                        <input type="text" name="mname" value="{{teacher.mname}}" id="mn" class="form-control rounded-0">
+                    </div>
+                    <div class="col-md-6">
+                        <label for="g" class="form-lable">Gender</label>
+                        <input type="text" name="gender" value="{{teacher.gender}}" id="g" class="form-control rounded-0">
+                    </div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col-md-6">
+                        <label for="do" class="form-lable">DOB</label>
+                        <input type="date" name="dob" value="{{teacher.dob}}" id="do" class="form-control rounded-0">
+                    </div>
+                    <div class="col-md-6">
+                        <label for="cn" class="form-lable">Contact NO</label>
+                        <input type="text" name="contactno" value="{{teacher.contactno}}" id="cn" class="form-control rounded-0">
+                    </div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col-md-6">
+                        <label for="em" class="form-lable">Email ID</label>
+                        <input type="email" name="emailaddress" value="{{teacher.emailaddress}}" id="em" class="form-control rounded-0" readonly>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="cl" class="form-lable">Teacher Class</label>
+                        <input type="text" name="tclass" value="{{teacher.tclass}}" id="cl" class="form-control rounded-0" readonly> 
+                    </div>
+                </div>
+                    <div class="row">
+                    <div class="col-md-6">
+                        <label for="sa" class="form-lable">Salary</label>
+                        <input type="number" name="salary" value="{{teacher.salary}}" id="sa" class="form-control rounded-0" readonly>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="qa" class="form-lable">Qualification</label>
+                        <input type="text" name="qualification" value="{{teacher.qualification}}" id="qa" class="form-control rounded-0">
+                    </div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col-md-12">
+                        <label for="ad" class="form-lable">Address</label>
+                        <textarea name="address" id="ad" class="form-control">{{teacher.address}}</textarea>
+                    </div>
+                    </div>
+                    <div class="text-center mt-3">
+                        <button type="submit" class="btn btn-success">Update</button>
+                    </div>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}
